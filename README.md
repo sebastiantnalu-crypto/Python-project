@@ -29,7 +29,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-2. The API will start on `http://127.0.0.1:5000`
+2. The API will start on `http://127.0.0.1:5009`
 
 The database will be automatically initialized with sample users: `toms`, `alice`, `bob`, `charlie`
 
@@ -49,19 +49,19 @@ The database will be automatically initialized with sample users: `toms`, `alice
 **Example using curl:**
 ```bash
 # User exists (returns 200)
-curl -H "X-Username: toms" http://127.0.0.1:5000/api/verify
+curl -H "X-Username: toms" http://127.0.0.1:5009/api/verify
 
 # User doesn't exist (returns 404)
-curl -H "X-Username: john" http://127.0.0.1:5000/api/verify
+curl -H "X-Username: john" http://127.0.0.1:5009/api/verify
 ```
 
 **Example using PowerShell:**
 ```powershell
 # User exists (returns 200)
-Invoke-WebRequest -Uri "http://127.0.0.1:5000/api/verify" -Headers @{"X-Username"="toms"}
+Invoke-WebRequest -Uri "http://127.0.0.1:5009/api/verify" -Headers @{"X-Username"="toms"}
 
 # User doesn't exist (returns 404)
-Invoke-WebRequest -Uri "http://127.0.0.1:5000/api/verify" -Headers @{"X-Username"="john"}
+Invoke-WebRequest -Uri "http://127.0.0.1:5009/api/verify" -Headers @{"X-Username"="john"}
 ```
 
 **Example using Python:**
@@ -69,13 +69,13 @@ Invoke-WebRequest -Uri "http://127.0.0.1:5000/api/verify" -Headers @{"X-Username
 import requests
 
 # User exists (returns 200)
-response = requests.get('http://127.0.0.1:5000/api/verify', 
+response = requests.get('http://127.0.0.1:5009/api/verify', 
                        headers={'X-Username': 'toms'})
 print(response.status_code)  # 200
 print(response.json())
 
 # User doesn't exist (returns 404)
-response = requests.get('http://127.0.0.1:5000/api/verify', 
+response = requests.get('http://127.0.0.1:5009/api/verify', 
                        headers={'X-Username': 'john'})
 print(response.status_code)  # 404
 ```
@@ -132,15 +132,15 @@ python init_db.py
 
 Once the server is running, test it using any of these methods:
 
-1. **Web Browser:** Visit `http://127.0.0.1:5000/` to see API info
+1. **Web Browser:** Visit `http://127.0.0.1:5009/` to see API info
 
 2. **PowerShell:**
    ```powershell
-   Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/verify" -Headers @{"X-Username"="toms"}
+   Invoke-RestMethod -Uri "http://127.0.0.1:5009/api/verify" -Headers @{"X-Username"="toms"}
    ```
 
 3. **Postman:** 
-   - Create a GET request to `http://127.0.0.1:5000/api/verify`
+   - Create a GET request to `http://127.0.0.1:5009/api/verify`
    - Add header: `X-Username` with value `toms`
 
 ## Project Structure
@@ -165,3 +165,4 @@ restapi/
 ## Stopping the Server
 
 Press `Ctrl+C` in the terminal where the server is running.
+
